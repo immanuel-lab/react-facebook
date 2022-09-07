@@ -16,6 +16,7 @@ function PageWrapper() {
   <Routes>
     <Route path="/home" element={<Home />} />
     <Route path="/shop" element={<Shop />} />
+    {/* <Route path="/" element={<Login/>}/> */}
       </Routes>
 
 

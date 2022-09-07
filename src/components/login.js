@@ -2,7 +2,7 @@ import React ,{useRef,useEffect,useState} from 'react'
 // import { useForm } from "react-hook-form";
 // import {useNavigate} from "react-router-dom"
 import {useDispatch} from 'react-redux'
-import {login} from '../features/user'
+import {login} from '../features/userSlice'
 
 function Login({onlogin}) {
   //   const value=useRef()
@@ -19,9 +19,9 @@ const  dispatch=useDispatch();
 const handleSubmit=(e)=>{
   e.preventDefault();
 
-  dispatch(login({
-    name:name
-  }))
+ dispatch(login({
+  name:name
+ }))
 };
 
   return (
@@ -36,9 +36,11 @@ const handleSubmit=(e)=>{
 
             <div className='container bg-white mt-40 mr-64 mb-28 ' id="login">
             <form onSubmit={(e)=>handleSubmit(e)}>
-                <input   value={name}  type="text"   placeholder="Name " className='border br-black-500  mt-5 w-11/12 ml-4  p-4 rounded-md focus:outline-none focus:border-blue-600 placeholder:text-gray-500 placeholder:font-thin placeholder:text-xl' onChange={(e)=>setName(e.target.value)}   /><br></br>
+            {/* <form> */}
+                <input     type="text"   placeholder="Name " className='border br-black-500  mt-5 w-11/12 ml-4  p-4 rounded-md focus:outline-none focus:border-blue-600 placeholder:text-gray-500 placeholder:font-thin placeholder:text-xl' onChange={(e)=>setName(e.target.value)}   /><br></br>
                  <input  type="Password" placeholder='password'  className='border br-black-500  mt-3 w-11/12 ml-4  p-4 placeholder:text-gray-600 placeholder:font-thin placeholder:text-xl focus:outline-none focus:border-blue-500 '  />
-                <button type="submit"  onClick={()=>onlogin(true)} className=' bg-blue-500 p-3 mt-3 w-11/12 ml-4 rounded-md text-white font-normal text-2xl hover:bg-blue-700'  >Log In</button><br></br>
+                {/* <button type="submit"  onClick={()=>onlogin(true)} className=' bg-blue-500 p-3 mt-3 w-11/12 ml-4 rounded-md text-white font-normal text-2xl hover:bg-blue-700'  >Log In</button><br></br> */}
+                <button type="submit"   className=' bg-blue-500 p-3 mt-3 w-11/12 ml-4 rounded-md text-white font-normal text-2xl hover:bg-blue-700'  >Log In</button><br></br>
               
                 <p className='text-center text-md text-blue-500 mt-2 hover:underline cursor-pointer'>forgotten password ?</p>
                 <hr className='mt-5 w-11/12 ml-3' />

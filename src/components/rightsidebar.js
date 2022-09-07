@@ -6,7 +6,7 @@ import {CgProfile} from 'react-icons/cg'
 function Rightsidebar() {
   return (
     <>
-    <div className=' container hover:overflow-scroll  w-72  h-full  fixed right-0  mr-4   mb-32  '>
+    <div className=' container hover:overflow-scroll  w-72  h-full bg-purple-200 fixed right-0  mr-4   mb-32  '>
         <p className='text-md font-bold text-gray-500 '>Sponsored</p>
     <hr className='mt-3 border border-gray-300 '></hr>
         <div className= ' w-full  h-10 '>

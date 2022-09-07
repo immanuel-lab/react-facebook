@@ -22,13 +22,13 @@ import { FiSettings } from "react-icons/fi";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { BsFillMoonFill } from "react-icons/bs";
 import { BsArrowDownCircleFill } from "react-icons/bs";
-;
+import userEvent from "@testing-library/user-event";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../features/userSlice";
+
 
 function Header() {
-  const [Title, setTitle] = useState(false);
-  const [Title1, setTitle1] = useState(false);
-  const [Title2, setTitle2] = useState(false);
-  const [Title3, setTitle3] = useState(false);
+
 
   // show drop down
 
@@ -37,6 +37,8 @@ function Header() {
  
 
     let domNode = useRef();
+
+    const user=useSelector((state)=>state.user.user)
   
 
     useEffect(() => {
@@ -47,6 +49,12 @@ function Header() {
         }
       });
       });
+const dispatch=useDispatch()
+      const handlelogout=(e)=>{
+        e.preventDefault();
+
+dispatch(logout())
+      }
   
    const activeClassName='text-blue-500 border-b-2 border-blue-400'
   return (
@@ -78,8 +86,7 @@ function Header() {
         }>
           <AiOutlineHome
         
-            // onMouseEnter={() => setTitle(true)}
-            // onMouseLeave={() => setTitle(false)}
+          
             className="w-16 h-16 cursor-pointer px-4 py-1  rounded-lg  hover:bg-gray-200 "
           /> 
         </NavLink>
@@ -89,8 +96,7 @@ function Header() {
           
           <div>
           <BsPlayBtn
-            onMouseEnter={() => setTitle1(true)}
-            onMouseLeave={() => setTitle1(false)}
+          
             className="w-16 h-16 cursor-pointer px-4 py-1rounded-md  hover:bg-gray-200 "
           />
           </div>
@@ -101,8 +107,7 @@ function Header() {
          isActive ? activeClassName : undefined
         } >
           <BsShopWindow
-            onMouseEnter={() => setTitle2(true)}
-            onMouseLeave={() => setTitle2(false)}
+           
             className="w-16 h-16 cursor-pointer px-4 py-1  hover:bg-gray-200 "
           />
           </NavLink>
@@ -113,8 +118,7 @@ function Header() {
        <Tippy content={<div className="bg-gray-900 px-2 py-1  rounded-md  text-white opacity-80  transition ease-in-out  ">Gaming</div>}>
          <div>
           <TbDeviceGamepad2
-            onMouseEnter={() => setTitle3(true)}
-            onMouseLeave={() => setTitle3(false)}
+         
             className="w-16 h-16 cursor-pointer px-4 py-1 rounded-lg hover:bg-gray-200 "
           />
           </div></Tippy>
@@ -203,7 +207,7 @@ function Header() {
                   </div>
                   <div >
                     <p className="text-center text-xl text-black-500  font-bold ">
-                      immanuel
+                   {user.name}
                     </p>
                   </div>
                 </div>
@@ -240,7 +244,7 @@ function Header() {
                 </p>
               </div>
 
-              <div  className="flex mt-3 hover:bg-gray-200 cursor-pointer">
+              <div onClick={handlelogout} className="flex mt-3 hover:bg-gray-200 cursor-pointer">
                 <div className="p-4 bg-gray-200 rounded-full ml-2">
                   <BsArrowDownCircleFill />
                 </div>

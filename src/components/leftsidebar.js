@@ -13,13 +13,13 @@ import {SiFacebookgaming} from 'react-icons/si'
 import {FcEnteringHeavenAlive} from 'react-icons/fc'
 
 import {useSelector} from 'react-redux'
-import { selectUser } from '../features/user';
+// import user from '../features/userSlice';
 
 function Leftsidebar() {
-      const user=useSelector(selectUser)
+      const user=useSelector((state)=>state.user.user)
   return (
     <>
-    <div className=' container hover:overflow-y-scroll w-72 bg-green-400  h-screen   fixed left-0  '>
+    <div className=' container hover:overflow-y-scroll w-72 bg-purple-200 h-screen   fixed left-0  '>
 
         <div className='flex mt-3'>
 <CgProfile className='w-20 h-10'/>
