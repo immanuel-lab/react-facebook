@@ -198,7 +198,7 @@ dispatch(logout())
 
       {show ? (
         <>
-          <div   className="flex justify-end mr-5  absolute right-0 z-10 ">
+          <div   className="flex justify-end mr-5  absolute right-0 z-10 -mt-8">
             <div ref={domNode} className="w-80  h-96 bg-white mt-3 ml-3">
               <div class=" mt-5  ml-2 mr-2 h-24 flex  flex-col p-2   bg-gray-100 rounded-xl ">
                 <div className="flex gap-6 items-center p-2 hover:bg-slate-200 cursor-pointer rounded-lg">

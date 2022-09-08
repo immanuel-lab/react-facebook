@@ -1,7 +1,17 @@
-import React from 'react'
-import image from './image1.jpg'
-
+import React, { useRef } from 'react'
+// import image from './image1.jpg'
+import {MdChevronLeft,MdChevronRight} from "react-icons/md"
+import {data} from "./images"
 function CenterTop() {
+  const slideLeft = () => {
+    var slider = document.getElementById('slider');
+    slider.scrollLeft = slider.scrollLeft - 400;
+  };
+
+  const slideRight = () => {
+    var slider = document.getElementById('slider');
+    slider.scrollLeft = slider.scrollLeft + 400;
+  };
   return (
     <div className=' bg-purple-200 rounded-lg  h-72  w-1/3 mx-auto '>
           {/* <div className='mt-48 '> */}
@@ -12,32 +22,18 @@ function CenterTop() {
                 </div>
                 {/* </div> */}
             <hr className='mt-5 border border-gray-500'></hr>
-            <div className='flex mt-2 overflow-x-scroll gap-2'>
+            <div  id="slider" className='flex items-center gap-2 mt-5 overflow-x-scroll  scrollbar-hide '>
+              <div onClick={slideLeft} className='p-2 rounded-full bg-gray-300 absolute z-10 hover:cursor-pointer'>
+              <MdChevronLeft size={30}  />
+              </div>
+              
+             {data.map(image=><img src={image.img} alt="image" className="w-32 h-48 rounded-lg hover:scale-105 ease-in-out duration-300 cursor-pointer "/>)}
+             <div onClick={slideRight} className=' p-2 rounded-full bg-gray-300 ml-96 absolute z-10 hover:cursor-pointer'>
 
-                            <div>
-                                <img src={image} className='w-48  h-48 rounded-lg'/>
-                                </div>
+          <MdChevronRight size={30}  />
+                    </div>
+</div>
 
-                                <div>
-                                <img src={image} className='w-48  h-48 rounded-lg ml-3'/>
-                                </div>
-
-                                <div>
-                                <img src={image} className='w-48  h-48 rounded-lg'/>
-                                </div>
-
-                                <div>
-                                <img src={image} className='w-48  h-48 rounded-lg'/>
-                                </div>
-
-                                <div>
-                                <img src={image} className='w-48  h-48 rounded-lg'/>
-                                </div>
-
-                                <div>
-                                <img src={image} className='w-48  h-48 rounded-lg'/>
-                                </div>
-            </div>
   </div>
   )
 }
