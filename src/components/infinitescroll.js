@@ -1,18 +1,18 @@
 import React from 'react'
-import Axios from 'axios'
 import {useEffect,useState} from "react"
+import Axios from "axios"
+import { MdImageSearch } from 'react-icons/md'
 function Infinitescroll() {
-   const [images,setImages]=useState([])
-    useEffect(() => {
-Axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
-  .then((res)=>{console.log(res) ;setImages(res.data) }).catch(err=>console.log(err));
- 
-    })
+  const[coinsimages,setcoinsimages]=useState([])
+ const response= useEffect(() =>{
+    Axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
+  .then((res)=>console.log(res));
+  // setcoinsimages(response.data.image)
+  } )
   return (
     <>
-   {images.map((image)=><div className="flex justify-center mb-3"><div className="w-96 h-80 bg-emerald-500 flex items-center "><img src={image.image} alt="image" className="w-80 h-72 ml-6"/></div></div>)}
-    
-    I</>
+{response.map((image)=><div className="flex flex-col"><div className='w-48 h-48 bg-slate-400'>{image.image}</div></div>)}
+    </>
   )
 }
 

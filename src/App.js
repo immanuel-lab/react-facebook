@@ -5,6 +5,8 @@ import PageWrapper from "./Pages/PageWrapper";
 import Shop from './Pages/Shop'
 import { useSelector } from "react-redux";
 import Infinitescroll from "./components/infinitescroll";
+import Practise from "./components/practise";
+import Moveimages from "./components/moveimages";
 function App() {
   const [showprofile, setshowProfile] = useState(false);
   const user=useSelector((state)=>state.user.user)
@@ -20,8 +22,9 @@ function App() {
       {/* routes */}
     {/* <Shop/> */}
     {/* <Login/> */}
-
-    <Infinitescroll/>
+<Moveimages/>
+    {/* <Infinitescroll/> */}
+    {/* <Practise/> */}
     </>
   );
 }
