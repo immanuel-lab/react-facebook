@@ -15,6 +15,8 @@ import SimpleImageSlider from "react-simple-image-slider";
         images={images}
         showBullets={true}
         showNavs={true}
+        autoPlay={true}
+        slideDuration={2}
       />
     
     </>
